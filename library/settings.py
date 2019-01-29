@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # created app/s
     'books',
+    'profiles',
 
     # third-party app/s
     'widget_tweaks',

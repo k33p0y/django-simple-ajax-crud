@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from books.urls import views
+from books import views
+from profiles import views as profile_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +25,8 @@ urlpatterns = [
     path('books/create/', views.book_create, name='book_create'),
     path('books/<int:pk>/update/', views.book_update, name='book_update'),
     path('books/<int:pk>/delete/', views.book_delete, name='book_delete'),
+]
+
+urlpatterns += [
+    path('profiles', profile_views.profile_list, name='profile_list'),
 ]

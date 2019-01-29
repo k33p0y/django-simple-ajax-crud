@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Profiles</h1>
+<table class="table" id="profile-table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>First name</th>
+            <th>Middle name</th>
+            <th>Last name</th>
+            <th>Birth date</th>
+            <th>Gender</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for profile in profiles %}
+            <tr>
+                <td>{{ profile.id }}</td>
+                <td>{{ profile.fname }}</td>
+                <td>{{ profile.mname }}</td>
+                <td>{{ profile.lname }}</td>
+                <td>{{ profile.birth_date }}</td>
+                <td>{{ profile.get_gender_display }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="6" class="text-center bg-warning">No records</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="modal-profile" tabindex="-1" role="dialog" aria-labelledby="modal-profile" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
