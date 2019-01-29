@@ -7,10 +7,10 @@ class Profile(models.Model):
         (MALE, 'Male'),
         (FEMALE, 'Female'),
     )
-    fname = models.CharField(max_length=50)
-    mname = models.CharField(max_length=50)
-    lname = models.CharField(max_length=50)
-    birth_date = models.DateField(null=True, blank=True)
+    fname = models.CharField('First name', max_length=50)
+    mname = models.CharField('Middle name', max_length=50)
+    lname = models.CharField('last name', max_length=50)
+    birth_date = models.DateField(null=True, blank=True, verbose_name='Birth date')
     gender = models.PositiveSmallIntegerField(choices=GENDER)
 
     def __str__(self):

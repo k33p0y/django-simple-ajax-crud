@@ -1,0 +1,14 @@
+{% for profile in profiles %}
+    <tr>
+        <td>{{ profile.id }}</td>
+        <td>{{ profile.fname }}</td>
+        <td>{{ profile.mname }}</td>
+        <td>{{ profile.lname }}</td>
+        <td>{{ profile.birth_date }}</td>
+        <td>{{ profile.get_gender_display }}</td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="6" class="text-center bg-warning">No records</td>
+    </tr>
+{% endfor %}

@@ -1,7 +1,22 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+{% block javascript %}
+    <script src="{% static 'profiles/js/profiles.js' %}"></script>
+{% endblock %}
+
 {% block content %}
 <h1>Profiles</h1>
+<p>
+    <!-- Button trigger modal -->
+    <button type="button"
+            class="btn btn-primary js-create-profile"
+            data-toggle="modal"
+            data-target="#modal-book">
+        Add profile
+    </button>
+</p>
 <table class="table" id="profile-table">
     <thead>
         <tr>
@@ -14,20 +29,7 @@
         </tr>
     </thead>
     <tbody>
-        {% for profile in profiles %}
-            <tr>
-                <td>{{ profile.id }}</td>
-                <td>{{ profile.fname }}</td>
-                <td>{{ profile.mname }}</td>
-                <td>{{ profile.lname }}</td>
-                <td>{{ profile.birth_date }}</td>
-                <td>{{ profile.get_gender_display }}</td>
-            </tr>
-        {% empty %}
-            <tr>
-                <td colspan="6" class="text-center bg-warning">No records</td>
-            </tr>
-        {% endfor %}
+        {% include 'profiles/includes/partial_profile_list.html' %}
     </tbody>
 </table>
 

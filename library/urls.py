@@ -29,4 +29,5 @@ urlpatterns = [
 
 urlpatterns += [
     path('profiles', profile_views.profile_list, name='profile_list'),
+    path('profiles/create/', profile_views.profile_create, name='profile_create'),
 ]
