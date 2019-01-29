@@ -13,7 +13,8 @@
     <button type="button"
             class="btn btn-primary js-create-profile"
             data-toggle="modal"
-            data-target="#modal-book">
+            data-target="#modal-profile"
+            data-url="{% url 'profile_create' %}">
         Add profile
     </button>
 </p>
@@ -26,6 +27,7 @@
             <th>Last name</th>
             <th>Birth date</th>
             <th>Gender</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>

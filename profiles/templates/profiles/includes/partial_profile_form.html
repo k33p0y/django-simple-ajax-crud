@@ -1,0 +1,21 @@
+{% load widget_tweaks %}
+
+{% for field in form %}
+    <div class="form-group">
+        <div class="form-check">
+            <label class="form-check-label" for="{{ field.id_for_label }}">
+                {{ field.label }}
+            </label>
+            {% if field.errors %}
+                {% render_field field class="form-control is-invalid" %}
+                {% for error in field.errors %}
+                    <div class="invalid-feedback">
+                        {{ error }}
+                    </div>
+                {% endfor %}
+            {% else %}
+                {% render_field field class="form-control" %}
+            {% endif %}
+        </div>
+    </div>
+{% endfor %}
