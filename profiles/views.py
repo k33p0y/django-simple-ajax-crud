@@ -36,7 +36,7 @@ def profile_create(request):
 def profile_update(request, pk):
     profile = get_object_or_404(Profile, pk=pk)
     if request.method == 'POST':
-        form = BookForm(request.POST, instance=profile)
+        form = ProfileForm(request.POST, instance=profile)
     else:
-        form = BookForm(instance=profile)
+        form = ProfileForm(instance=profile)
     return save_profile_form(request, form, 'profiles/includes/partial_profile_update.html')
