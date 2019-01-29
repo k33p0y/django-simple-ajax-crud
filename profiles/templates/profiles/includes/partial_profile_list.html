@@ -12,6 +12,11 @@
                 data-url="{% url 'profile_update' profile.id %}">
                 Edit
             </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-profile"
+                    data-url="{% url 'profile_delete' profile.id %}">
+                Delete
+            </button>
         </td>
     </tr>
 {% empty %}

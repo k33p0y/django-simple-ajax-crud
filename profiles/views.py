@@ -40,3 +40,21 @@ def profile_update(request, pk):
     else:
         form = ProfileForm(instance=profile)
     return save_profile_form(request, form, 'profiles/includes/partial_profile_update.html')
+
+def profile_delete(request, pk):
+    profile = get_object_or_404(Profile, pk=pk)
+    data = dict()
+    if request.method == 'POST':
+        profile.delete()
+        data['form_is_valid'] = True  # This is just to play along with the existing code
+        profiles = Profile.objects.all()
+        data['html_profile_list'] = render_to_string('profiles/includes/partial_profile_list.html', {
+            'profiles': profiles
+        })
+    else:
+        context = {'profile': profile}
+        data['html_form'] = render_to_string('profiles/includes/partial_profile_delete.html',
+            context,
+            request=request,
+        )
+    return JsonResponse(data)

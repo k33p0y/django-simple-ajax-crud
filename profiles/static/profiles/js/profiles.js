@@ -44,4 +44,8 @@ $(function () {
   // Update book
   $("#profile-table").on("click", ".js-update-profile", loadForm);
   $("#modal-profile").on("submit", ".js-profile-update-form", saveForm);
+
+  // Delete book
+  $("#profile-table").on("click", ".js-delete-profile", loadForm);
+  $("#modal-profile").on("submit", ".js-profile-delete-form", saveForm);
 });
